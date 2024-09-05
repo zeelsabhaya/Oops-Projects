@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Person & Bank Account Manager</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            max-width: 500px;
+            margin: auto;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        input, button {
+            padding: 8px;
+            width: 100%;
+            margin-top: 5px;
+        }
+        .output {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="section">
+        <h2>Create Person</h2>
+        <label for="pName">Name:</label>
+        <input type="text" id="pName" placeholder="Enter name">
+        
+        <label for="pAge">Age:</label>
+        <input type="number" id="pAge" placeholder="Enter age">
+        
+        <label for="pCountry">Country:</label>
+        <input type="text" id="pCountry" placeholder="Enter country">
+        
+        <button onclick="createPerson()">Create Person</button>
+        
+        <div class="output" id="personOutput"></div>
+    </div>
+    
+    
+</div>
+
+<script>
+    class Person {
+        constructor(name, age, country) {
+            this.name = name;
+            this.age = age;
+            this.country = country;
+        }
+
+        showDetails() {
+            return `Name: ${this.name}\nAge: ${this.age}\nCountry: ${this.country}`;
+        }
+    }
+
+    
+
+    let currentPerson = null;
+
+    function createPerson() {
+        const name = document.getElementById('pName').value;
+        const age = document.getElementById('pAge').value;
+        const country = document.getElementById('pCountry').value;
+
+        currentPerson = new Person(name, age, country);
+        document.getElementById('personOutput').innerText = "Person Created:\n" + currentPerson.showDetails();
+
+
+         document.getElementById('pName').value = "";
+        document.getElementById('pAge').value ="";
+        document.getElementById('pCountry').value ="";
+    }
+
+    
+</script>
+
+</body>
+</html>

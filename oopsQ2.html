@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      class Banck {
+        constructor(name, amount) {
+          this.name = name;
+          this.amount = amount;
+        }
+
+        deposit(amu) {
+          this.amount = this.amount + amu;
+          console.log("Your deposit + Amount :- ", this.amount);
+        }
+
+        whithdro(amu) {
+          if (this.amount >= amu) {
+            this.amount = this.amount - amu;
+            console.log("Your whithdro - Amount :- ", this.amount);
+          }else {
+            console.log("You don't have any money");
+          }
+        }
+
+        totalAmount() {
+          console.log("Your total Amount :- ", this.amount);
+        }
+      }
+      let banck = new Banck("yes", 1000);
+      let po;
+      do {
+        po = parseInt(
+          prompt(
+            "Enter 1 deposit,Enter 2 whithdro,Enter 3 totalAmount,Enter 0 Exit code,"
+          )
+        );
+        switch (po) {
+          case 1:
+            let depositamount = parseInt(prompt("Enter deposit Amount"));
+            banck.deposit(depositamount);
+            console.log("Your deposit Amount :- ", depositamount);
+            break;
+          case 2:
+            let whithdroamount = parseInt(prompt("Enter whithdro Amount"));
+            banck.whithdro(whithdroamount);
+            console.log("Your whithdro Amount :- ", whithdroamount);
+            break;
+          case 3:
+            banck.totalAmount();
+            break;
+          case 0:
+            console.log("You are Exit");
+            break;
+          default:
+            console.log("Your number is not avelebal");
+            break;
+        }
+      } while (po != 0);
+    </script>
+  </body>
+</html>
